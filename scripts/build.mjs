@@ -286,6 +286,7 @@ const page = `<!doctype html>
     .load-more:hover { background:var(--green); color:white; }
     footer { border-top:1px solid var(--line); padding:30px 0 44px; color:var(--muted); font-size:.78rem; line-height:1.6; }
     footer .main { padding:0; display:flex; justify-content:space-between; gap:30px; }
+    footer a { text-underline-offset:2px; }
     .random-flash { animation:flash 1.1s ease; }
     @keyframes flash { 0%,100% { box-shadow:none; } 30% { box-shadow:0 0 0 5px var(--orange),0 16px 38px rgba(26,47,40,.14); transform:translateY(-3px); } }
     @media (max-width:820px) { .hero-inner,.main { width:min(100% - 24px,1180px); } .hero-copy { padding:50px 0 58px; } .controls { top:6px; grid-template-columns:1fr auto; } .random { width:52px; padding:0; font-size:0; } .random:after { content:"↗"; font-size:1.15rem; } .word-card { grid-template-columns:76px 1fr; grid-template-areas:"rank word" ". definition" ". example"; align-items:start; padding:14px; gap:8px 10px; } .rank-cell { padding-top:8px; gap:12px; } .pos { max-width:66px; } .example { margin-top:3px; padding:9px 0 0; border-left:0; border-top:1px solid #e0e1d7; } .ipa-help { display:none; } footer .main { flex-direction:column; } }
@@ -312,7 +313,7 @@ const page = `<!doctype html>
     <section class="word-list" id="list" aria-label="Persian word list"></section>
     <button class="load-more" id="more" type="button">Show 100 more</button>
   </main>
-  <footer><div class="main"><span>Frequency data: Miller & Aghajanian-Stewart (2009), via Wiktionary.</span><span>Tip: press <b>/</b> to search · Designed for screen and print.</span></div></footer>
+  <footer><div class="main"><span>Frequency data: Miller & Aghajanian-Stewart (2009), via Wiktionary.<br>Corpus examples © <a href="https://tatoeba.org" target="_blank" rel="noreferrer">Tatoeba contributors</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="license noreferrer">CC BY 2.0 FR</a>.</span><span>Tip: press <b>/</b> to search · Designed for screen and print.</span></div></footer>
   <script>
     const WORDS = ${data};
     const state = { query:'', pos:'All', limit:100 };
