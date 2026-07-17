@@ -244,9 +244,6 @@ const page = `<!doctype html>
     h1 { margin:16px 0 20px; font-size:clamp(3rem,8vw,7.5rem); line-height:.87; letter-spacing:-.065em; max-width:900px; }
     h1 .fa { display:block; direction:rtl; text-align:left; font-family:Tahoma,"Noto Naskh Arabic",serif; font-weight:500; letter-spacing:0; line-height:1.05; color:var(--acid); }
     .intro { margin:0; max-width:670px; color:#d8e2df; line-height:1.7; font-size:clamp(1rem,2vw,1.17rem); }
-    .hero-source { margin-top:38px; padding-left:16px; border-left:3px solid var(--acid); max-width:720px; color:#aebfba; font-size:.8rem; line-height:1.6; }
-    .hero-source a { color:#fff; text-decoration:none; }
-    .hero-source a:hover { color:var(--acid); }
     .main { padding:38px 0 80px; }
     .controls { position:sticky; top:12px; z-index:10; display:grid; grid-template-columns:1fr auto; gap:12px; padding:12px; background:rgba(255,253,248,.86); border:1px solid rgba(217,217,206,.9); border-radius:18px; box-shadow:var(--shadow); backdrop-filter:blur(18px); }
     .search-wrap { position:relative; }
@@ -280,7 +277,7 @@ const page = `<!doctype html>
     .translation-toggle { flex:0 0 34px; width:34px; height:34px; display:grid; place-items:center; border:1px solid #cdd2c9; border-radius:50%; background:#f2f3eb; color:var(--green); font-weight:800; font-size:.68rem; cursor:pointer; }
     .translation-toggle:hover { background:var(--acid); border-color:var(--acid); transform:rotate(-6deg); }
     .translation-toggle:focus-visible { outline:2px solid var(--green); outline-offset:2px; }
-    .pos { display:inline-block; background:#eef0e8; color:#65706b; border-radius:999px; padding:4px 6px; max-width:78px; text-align:center; font-size:.5rem; line-height:1.2; text-transform:uppercase; letter-spacing:.04em; overflow-wrap:anywhere; }
+    .pos { display:inline-block; background:#eef0e8; color:#65706b; border-radius:999px; padding:4px 6px; max-width:100%; text-align:center; font-size:.5rem; line-height:1.2; text-transform:uppercase; letter-spacing:.04em; overflow-wrap:normal; word-break:normal; white-space:normal; }
     .empty { grid-column:1/-1; text-align:center; padding:70px 20px; background:var(--card); border:1px dashed var(--line); border-radius:18px; }
     .load-more { display:block; margin:26px auto 0; border:1px solid var(--green); color:var(--green); background:transparent; border-radius:12px; padding:13px 24px; font-weight:800; cursor:pointer; }
     .load-more:hover { background:var(--green); color:white; }
@@ -289,8 +286,8 @@ const page = `<!doctype html>
     footer a { text-underline-offset:2px; }
     .random-flash { animation:flash 1.1s ease; }
     @keyframes flash { 0%,100% { box-shadow:none; } 30% { box-shadow:0 0 0 5px var(--orange),0 16px 38px rgba(26,47,40,.14); transform:translateY(-3px); } }
-    @media (max-width:820px) { .hero-inner,.main { width:min(100% - 24px,1180px); } .hero-copy { padding:50px 0 58px; } .controls { top:6px; grid-template-columns:1fr auto; } .random { width:52px; padding:0; font-size:0; } .random:after { content:"↗"; font-size:1.15rem; } .word-card { grid-template-columns:76px 1fr; grid-template-areas:"rank word" ". definition" ". example"; align-items:start; padding:14px; gap:8px 10px; } .rank-cell { padding-top:8px; gap:12px; } .pos { max-width:66px; } .example { margin-top:3px; padding:9px 0 0; border-left:0; border-top:1px solid #e0e1d7; } .ipa-help { display:none; } footer .main { flex-direction:column; } }
-    @media print { .hero { color:#000; background:white; } .hero:after,.controls,.load-more,.translation-toggle { display:none!important; } .hero-copy { padding:28px 0; } h1 { font-size:40px; } h1 .fa,.eyebrow { color:#000; } .intro { color:#333; } .hero-source,.hero-source a { color:#333; } .main { width:100%; padding:15px; } .word-list { grid-template-columns:1fr; gap:5px; } .word-card { min-height:0; break-inside:avoid; padding:9px; border-radius:4px; grid-template-columns:65px 110px 1fr; grid-template-areas:"rank word example"; } .persian { font-size:20px; } .definition { display:none; } .pos { font-size:7px; padding:3px 5px; } .example { padding-left:10px; font-size:11px; } }
+    @media (max-width:820px) { .hero-inner,.main { width:min(100% - 24px,1180px); } .hero-copy { padding:50px 0 58px; } .controls { top:6px; grid-template-columns:1fr auto; } .random { width:52px; padding:0; font-size:0; } .random:after { content:"↗"; font-size:1.15rem; } .word-card { grid-template-columns:84px 1fr; grid-template-areas:"rank word" ". definition" "example example"; align-items:start; padding:14px; gap:8px 10px; } .rank-cell { padding-top:8px; gap:12px; } .example { margin-top:3px; padding:9px 0 0; border-left:0; border-top:1px solid #e0e1d7; } .ipa-help { display:none; } footer .main { flex-direction:column; } }
+    @media print { .hero { color:#000; background:white; } .hero:after,.controls,.load-more,.translation-toggle { display:none!important; } .hero-copy { padding:28px 0; } h1 { font-size:40px; } h1 .fa,.eyebrow { color:#000; } .intro { color:#333; } .main { width:100%; padding:15px; } .word-list { grid-template-columns:1fr; gap:5px; } .word-card { min-height:0; break-inside:avoid; padding:9px; border-radius:4px; grid-template-columns:65px 110px 1fr; grid-template-areas:"rank word example"; } .persian { font-size:20px; } .definition { display:none; } .pos { font-size:7px; padding:3px 5px; } .example { padding-left:10px; font-size:11px; } }
   </style>
 </head>
 <body>
@@ -299,7 +296,6 @@ const page = `<!doctype html>
       <div class="hero-copy">
         <h1><span class="fa" lang="fa">پنج هزار واژه</span>5,000 words.</h1>
         <p class="intro">The most-used Persian words, ranked by frequency.</p>
-        <div class="hero-source">Source: <a href="${SOURCE}" target="_blank" rel="noreferrer"><cite>A Frequency Dictionary of Persian: Core Vocabulary for Learners</cite> by Corey Miller and Karineh Aghajanian-Stewart (Routledge, 2009)</a></div>
       </div>
     </div>
   </header>
@@ -313,7 +309,7 @@ const page = `<!doctype html>
     <section class="word-list" id="list" aria-label="Persian word list"></section>
     <button class="load-more" id="more" type="button">Show 100 more</button>
   </main>
-  <footer><div class="main"><span>Frequency data: Miller & Aghajanian-Stewart (2009), via Wiktionary.<br>Corpus examples © <a href="https://tatoeba.org" target="_blank" rel="noreferrer">Tatoeba contributors</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="license noreferrer">CC BY 2.0 FR</a>.</span><span>Tip: press <b>/</b> to search · Designed for screen and print.</span></div></footer>
+  <footer><div class="main"><span>Frequency data: <a href="${SOURCE}" target="_blank" rel="noreferrer">Miller & Aghajanian-Stewart (2009), via Wiktionary.</a><br>Corpus examples © <a href="https://tatoeba.org" target="_blank" rel="noreferrer">Tatoeba contributors</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="license noreferrer">CC BY 2.0 FR</a>.</span><span>Tip: press <b>/</b> to search.</span></div></footer>
   <script>
     const WORDS = ${data};
     const state = { query:'', pos:'All', limit:100 };
